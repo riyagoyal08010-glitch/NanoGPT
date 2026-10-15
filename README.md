@@ -424,19 +424,17 @@ print(decode(out[0].tolist()))
 | `top_k` | Samples only from the `k` most likely tokens |
 
 ---
-
 ## 📈 Results
 
-> Fill these in with your own runs.
+| Model | Parameters | Train Loss | Validation Loss | Hardware |
+|---|---:|---:|---:|---|
+| Bigram baseline | TBD | TBD | TBD | TBD |
+| Single-head attention | TBD | TBD | TBD | TBD |
+| GPT (6 layers, 6 heads) | 10,788,929 | 1.1194 | 1.4866 | NVIDIA Tesla T4 |
 
-| Model | Params | Train loss | Val loss | Hardware | Time |
-|---|---|---|---|---|---|
-| Bigram baseline | ~4K | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
-| Single-head attention | _TBD_ | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
-| Full GPT (6 layers, 6 heads) | ~10.7M | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+**Note:** Loss values for the full GPT are from the last scheduled evaluation at step 4,800 of 5,000 training iterations.
 
 ### Sample Output
-
 
 But with prison: I will see them which imered;
 And Capitol, the king have borne's lord.
@@ -456,7 +454,7 @@ You his powerful brother fought unt
 ### Loss Curve
 
 ```text
-![Loss curve](assets/loss_curve.png)
+loss_curve_run2.png
 ```
 
 ---
