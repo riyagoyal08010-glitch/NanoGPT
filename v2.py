@@ -73,7 +73,7 @@ class Head(nn.Module):
 
     def forward(self, x):
         B,T,C = x.shape
-        k = self.query(x) #(B,T,head_size)
+        k = self.key(x) #(B,T,head_size)
         q = self.query(x) #(B,T,head_size)
 
         wei = q @ k.transpose(-2,-1) * C**-0.5 #(B,T,T) Scaled attention Scores
