@@ -6,9 +6,8 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C.svg?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/Status-Active%20Building-success.svg?style=for-the-badge)]()
 
-*Inspired by Andrej Karpathy's **Neural Networks: Zero to Hero** and the paper **"Attention Is All You Need"**.*
+*Inspired by :  **"Attention Is All You Need"**.*
 
 </div>
 
@@ -168,8 +167,8 @@ Self-attention replaces this fixed uniform average with **data-dependent weights
 ### 1. Clone & navigate
 
 ```bash
-git clone https://github.com/riyagoyal08010-glitch/nano-gpt-karpathy.git
-cd nano-gpt-karpathy
+git clone https://github.com/riyagoyal08010-glitch/NanoGPT.git
+cd NanoGPT
 ```
 
 ### 2. Set up the environment
@@ -213,12 +212,9 @@ Use the generation snippet from [Training & Generation](#-training--generation) 
 ```text
 📦 nano-gpt-karpathy/
 │
-├── 📜 train.py            # Training script: data loading, batching, optimization loop, eval
-├── 📜 model.py            # Transformer: Head, MultiHeadAttention, FeedForward, Block, GPT
-├── 📂 data/
-│   └── input.txt          # TinyShakespeare (or any plain-text corpus)
-├── 📂 notebooks/          # (optional) step-by-step walkthrough notebooks
-├── 📂 checkpoints/        # (optional) saved model weights
+├── 📜 v2.py               # Training script: data loading, batching, optimization loop, eval
+├── 📜 bigram.py           # Simple bigram language model
+├── 📂 final_out.txt       # final prediction
 └── 📜 README.md           # You are here
 ```
 
@@ -244,14 +240,14 @@ Use the generation snippet from [Training & Generation](#-training--generation) 
 If you do not have a GPU, shrink the model so it trains in a few minutes:
 
 ```python
-batch_size = 32
-block_size = 64
-n_embd = 128
-n_head = 4
-n_layer = 4
-dropout = 0.0
-learning_rate = 1e-3
-max_iters = 3000
+batch_size = 64
+block_size = 256
+n_embd = 384
+n_head = 6
+n_layer = 6
+dropout = 0.2
+learning_rate = 3e-4
+max_iters = 50000
 ```
 
 > **Rule of thumb:** `n_embd` must be divisible by `n_head`.
@@ -441,9 +437,21 @@ print(decode(out[0].tolist()))
 
 ### Sample Output
 
-```text
-<paste a generated sample here>
-```
+
+But with prison: I will see them which imered;
+And Capitol, the king have borne's lord.
+
+PARIS:
+Page our friend, let night, his by themb
+broke fearfully slaves his busined or her saint.
+
+MARIAR are heirs of the tent of right;
+Mething did hold on his owest in her side:
+We'll admitted two my good to feelis, which there gone
+Shall find outrously spick, in the other parks not,
+Call not rich believ the faped, my sovereign!
+You have mit put heard to hear the sixteen
+You his powerful brother fought unt
 
 ### Loss Curve
 
@@ -484,20 +492,6 @@ The project is built in stages, each adding one idea on top of the previous one:
 
 ---
 
-## 🗺️ Roadmap
-
-- [ ] Add checkpoint save and resume
-- [ ] Add a standalone `generate.py` CLI
-- [ ] Swap in Flash Attention via `F.scaled_dot_product_attention`
-- [ ] Learning-rate warmup and cosine decay
-- [ ] Gradient clipping and mixed-precision (`torch.autocast`) training
-- [ ] Byte-pair encoding (BPE) tokenizer instead of characters
-- [ ] Weight tying between the token embedding and output head
-- [ ] Training on a larger dataset (OpenWebText subset)
-- [ ] Loading pretrained GPT-2 weights for comparison
-- [ ] Attention-map visualization notebook
-
----
 
 ## 🎯 References & Acknowledgments
 
